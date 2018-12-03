@@ -8,6 +8,7 @@
    <meta name="Description" content="Learn about and perform basic computations related to RSA Encrytion." />
    <link rel="sitemap" type="application/xml" title="Sitemap" href="" />
    <link rel="shortcut icon" href="favicon.png" />
+   <script type="text/javascript" src="js/rsa.js"></script>
    <script src="js/jquery-1.7.1.min.js"></script>
    <script src="js/jquery.mousewheel-min.js"></script>
    <script src="js/jquery.terminal.min.js"></script>
@@ -23,14 +24,16 @@
          $('body').terminal({
             help: function () {
                this.echo("help: lists all runnable commands");
-               this.echo("decrypt [e] [n] [cypher]: Given public key (e, n) decrypts cypher.")
-               this.echo("encrypt [e] [n] [msg]: Given public key (e, n) encrypts msg.")
+               this.echo("decrypt [e] [n] [cypher]: Given public key (e, n) decrypts cypher.");
+               this.echo("encrypt [e] [n] [msg]: Given public key (e, n) encrypts msg.");
             },
             decrypt: function (e, n, msg) {
-               this.echo("In development")
+               decrypt(e, n);
+               this.echo("In development");
             },
             encrypt: function (value) {
-               this.echo("In development")
+               calculateD();
+               this.echo("In development");
             }
          }, { greetings: "Welcome to the RSA Encryption Tutorial. Here you can learn about the basic functionality of the computations that goes into RSA encryption. You can encrypt and decrypt text based messages on this site. Type help to read more about the functionality", completion: true });
       });
