@@ -1,4 +1,4 @@
-
+// TODO refactor to use nodejs to do serverside calculations
 function decrypt(e, n) {
    function phi(n) {
 
@@ -79,9 +79,27 @@ function decrypt(e, n) {
       return [b, signX * x, signY * y];
    }
 
+   // if d is negative will find a positive d to 
+   // work
+   function findPositiveD(d, y) {
+      while (d < 0) {
+         d += y;
+      }
+      return d;
+   }
+
    var phiOfN = phi(2747);
    console.log("phi(n) = " + phiOfN)
    var d = extendedEuclid(13, phiOfN)[1];
-   // TODO handle case when d is negative
+   d = findPositiveD(d, phiOfN);
+   var cyphers = [2206]
+
+   for (var i = 0; i < cyphers.length; i++) {
+      var c = cyphers[i];
+      // efficient exponentiation with large numbers
+      alert(c + "^" + d);
+      alert(Math.pow(c, d));
+   }
+
 
 }
